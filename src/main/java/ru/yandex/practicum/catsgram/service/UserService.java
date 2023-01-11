@@ -39,4 +39,12 @@ public class UserService {
         return user;
     }
 
+    public User findUserByEmail(String email) {
+        if (email == null) {
+            return null;
+        }
+        return users.get(email);
+
+    }
+
 }
