@@ -40,6 +40,16 @@ public class PostService {
         }).skip(from).limit(size).collect(Collectors.toList());
     }
 
+    public List<Post> findAllByUserEmail(String email, Integer size, String sort) {
+        return posts.stream().filter(p -> email.equals(p.getAuthor())).sorted((p0, p1) -> {
+            int comp = p0.getCreationDate().compareTo(p1.getCreationDate()); //прямой порядок сортировки
+            if (sort.equals("desc")) {
+                comp = -1 * comp; //обратный порядок сортировки
+            }
+            return comp;
+        }).limit(size).collect(Collectors.toList());
+    }
+
     public Post create(Post post) {
         User postUser = userService.findUserByEmail(post.getAuthor());
         if (postUser == null) {

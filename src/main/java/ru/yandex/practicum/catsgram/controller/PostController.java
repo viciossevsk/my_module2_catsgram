@@ -22,6 +22,7 @@ public class PostController {
     }
 
     /**
+     * ЗАДАНИЕ:
      * Дополните метод findAll класса-контроллера PostController параметрами запроса: sort — строка со значениями asc
      * (от англ. ascending, «восходящий» — по возрастанию) или desc (от англ. descending, «нисходящий» — по убыванию)
      * , page и size — целочисленные, size — больше нуля.
